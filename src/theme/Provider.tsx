@@ -2,7 +2,6 @@ import React from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import useStyle, { IUseStyle } from "./use-style";
 import useLang, { IUseLang } from "./use-lang";
-import { Helmet } from "react-helmet";
 
 declare module "styled-components" {
     interface DefaultTheme extends ThemeInterface { }

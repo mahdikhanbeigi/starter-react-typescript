@@ -5,12 +5,10 @@
   "homepage": "/starter-react-typescript-multi-color-lang",
   "dependencies": {
     "@types/react-custom-scrollbars": "^4.0.10",
-    "@types/react-helmet": "^6.1.5",
     "@types/styled-components": "^5.1.19",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "react-custom-scrollbars": "^4.2.1",
-    "react-helmet": "^6.1.0",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { Routes, Route, Navigate, useLocation,Link } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, Link } from 'react-router-dom';
 import ErrorRoute from "routes/error";
 import MainRoute from "routes/main";
 import PrivateRoute from "routes/private";
@@ -8,14 +8,15 @@ import RegisterRoute from "routes/sign/Register";
 import { Button } from "component/HtmlElements";
 import useTheme from "theme/use-theme";
 
+const BASE_URL = "/";
 interface IRequireAuth {
-    isLogin : boolean;
+    isLogin: boolean;
     children: JSX.Element;
 }
-const RequireAuth = ({ isLogin,children }: IRequireAuth) => {
+const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
     const location = useLocation();
     if (!isLogin) {
-        return <Navigate to="/login" state={{ from: location }} replace />;
+        return <Navigate to={BASE_URL+"/login"} state={{ from: location }} replace />;
     }
 
     return children;
@@ -36,18 +37,18 @@ export const App = () => {
     return (
         <Fragment>
             <Routes>
-                <Route path={'/'} element={<MainRoute />} />
-                <Route path={'/private'} element={
+                <Route path={BASE_URL} element={<MainRoute />} />
+                <Route path={BASE_URL+'/private'} element={
                     <RequireAuth isLogin={isLogin}>
                         <PrivateRoute />
                     </RequireAuth>
                 } />
-                <Route path="/login" element={<LoginRoute />} />
-                <Route path="/register" element={<RegisterRoute />} />
+                <Route path={BASE_URL+'/login'} element={<LoginRoute />} />
+                <Route path={BASE_URL+'/register'} element={<RegisterRoute />} />
                 <Route path="*" element={<ErrorRoute />} />
             </Routes>
             <div className="container mt-5">
-                <Button as={Link} color={"white"} className="ms-2" to={"/private"}>
+                <Button as={Link} color={"white"} className="ms-2" to={BASE_URL+"/private"}>
                     page private
                 </Button>
                 <Button bgColor="green" color={"white"} className="ms-2" onClick={_onToggleLang}>
