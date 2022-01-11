@@ -8,7 +8,7 @@ import RegisterRoute from "routes/sign/Register";
 import { Button } from "component/HtmlElements";
 import useTheme from "theme/use-theme";
 
-const BASE_URL = "/";
+const BASE_URL = "";
 interface IRequireAuth {
     isLogin: boolean;
     children: JSX.Element;
@@ -37,7 +37,7 @@ export const App = () => {
     return (
         <Fragment>
             <Routes>
-                <Route path={BASE_URL} element={<MainRoute />} />
+                <Route path={BASE_URL+"/"} element={<MainRoute />} />
                 <Route path={BASE_URL+'/private'} element={
                     <RequireAuth isLogin={isLogin}>
                         <PrivateRoute />
