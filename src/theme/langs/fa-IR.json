@@ -1,0 +1,10 @@
+{
+  "theme.dir" : "rtl",
+  "theme.locale" : "fa-IR",
+  "theme.language" : "farsi",
+  "theme.langLabel" : "fa",
+  "theme.langPath" : "/langs/language_ir.png",
+
+
+  "toggleAuth" : "تغییر وضعیت تأیید اعتبار"
+}

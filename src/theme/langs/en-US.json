@@ -1,0 +1,9 @@
+{
+  "theme.dir" : "ltr",
+  "theme.locale" : "en-US",
+  "theme.language" : "english",
+  "theme.langLabel" : "en",
+  "theme.langPath" : "/langs/language_us.png",
+
+  "toggleAuth" : "Toggle Auth"
+}
