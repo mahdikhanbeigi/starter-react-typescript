@@ -5,5 +5,9 @@
   "theme.langLabel" : "en",
   "theme.langPath" : "/langs/language_us.png",
 
-  "toggleAuth" : "Toggle Auth"
+
+  "nav.title.home" : "Home",
+  "nav.title.pagePrivate" : "Page Private",
+  "login" : "Login",
+  "logout" : "Logout"
 }
