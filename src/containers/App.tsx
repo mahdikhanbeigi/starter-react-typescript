@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Routes, Route, Navigate, useLocation, Link } from "react-router-dom";
 import MainRoute from "routes/main";
 import PrivateRoute from "routes/private";
@@ -9,7 +9,6 @@ import useTheme from "theme/use-theme";
 import Modal from "component/Modal";
 import { useAuth } from "hook/auth";
 
-const BASE_URL = "";
 interface IRequireAuth {
   isLogin: boolean;
   children: JSX.Element;
@@ -18,7 +17,7 @@ const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
   const location = useLocation();
   if (!isLogin) {
     return (
-      <Navigate to={BASE_URL + "/login"} state={{ from: location }} replace />
+      <Navigate to={process.env.REACT_APP_BASE_URL + "/login"} state={{ from: location }} replace />
     );
   }
 
@@ -42,17 +41,17 @@ export const App = () => {
   return (
     <Fragment>
       <Routes>
-        <Route path={BASE_URL + "/"} element={<MainRoute />} />
+        <Route path={process.env.REACT_APP_BASE_URL + "/"} element={<MainRoute />} />
         <Route
-          path={BASE_URL + "/private"}
+          path={process.env.REACT_APP_BASE_URL + "/private"}
           element={
             <RequireAuth isLogin={!!user}>
               <PrivateRoute />
             </RequireAuth>
           }
         />
-        <Route path={BASE_URL + "/login"} element={<LoginRoute />} />
-        <Route path={BASE_URL + "/register"} element={<RegisterRoute />} />
+        <Route path={process.env.REACT_APP_BASE_URL + "/login"} element={<LoginRoute />} />
+        <Route path={process.env.REACT_APP_BASE_URL + "/register"} element={<RegisterRoute />} />
       </Routes>
       <div className="container-fluid mt-5">
         <div className="d-flex flex-wrap">
@@ -65,7 +64,7 @@ export const App = () => {
               name: "white",
             }}
             className="me-1"
-            to={BASE_URL + "/"}
+            to={process.env.REACT_APP_BASE_URL + "/"}
           >
             {lang.dictionary["nav.title.home"]}
           </Button>
@@ -78,7 +77,7 @@ export const App = () => {
               name: "white",
             }}
             className="me-3"
-            to={BASE_URL + "/private"}
+            to={process.env.REACT_APP_BASE_URL + "/private"}
           >
             {lang.dictionary["nav.title.pagePrivate"]}
           </Button>
