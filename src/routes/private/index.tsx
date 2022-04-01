@@ -3,6 +3,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from "containers/panel/Header";
 import Footer from "containers/panel/Footer";
 import Home from "./Home";
+import ErrorRoute from "routes/error";
 const MainRoute = () => {
     return (
         <Routes>
@@ -14,6 +15,7 @@ const MainRoute = () => {
                 </Fragment>
             }>
                 <Route path="/" element={<Home />} />
+                <Route path="*" element={<ErrorRoute />} />
             </Route>
         </Routes>
     )

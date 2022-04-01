@@ -1,18 +1,9 @@
 import { useEffect, useState } from "react";
+import { IDictionary, IUseLang } from "typings/theme";
+import { instance } from "hook/global/use-controller";
 import langEn from "./langs/en-US.json";
 import langFa from "./langs/fa-IR.json";
-type ILocale = "fa-IR" | "en-US";
-interface IDictionary {
-    "theme.locale": ILocale;
-    "theme.language": string;
-    "theme.langLabel": string;
-    "theme.dir": "ltr" | "rtl";
-    [index: string]: string;
-}
-export interface IUseLang {
-    dictionary: IDictionary,
-    onChange: (code: ILocale) => void;
-}
+
 const createLinkCss = (id: string, href: string) => {
     const head = document.getElementsByTagName('head')[0];
     const link = document.createElement('link');
@@ -39,7 +30,7 @@ const getDictionary = (code: string): IDictionary => {
     const bootstrapGridPathname = "/assets/css/bootstrap-grid" + rtlPathname + ".min.css";
 
     const iransansPathname = "/assets/css/iransans.css";
-    const robotoPathname = "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap";
+    const robotoPathname = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap";
     const fontFamily = document.querySelector('link[id="fontFamily"]');
     const fontFamilyPathname = data['theme.locale'] === "fa-IR" ? iransansPathname : robotoPathname;
 
@@ -75,6 +66,7 @@ const useLang = (): IUseLang => {
 
     const onChange: IUseLang['onChange'] = (code) => {
         localStorage.setItem('lang', code);
+        instance.defaults.baseURL = process.env.REACT_APP_API_URL+"/"+code;
         setDictionary(getDictionary(code))
     }
     return {
