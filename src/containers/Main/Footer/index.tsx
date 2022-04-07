@@ -1,7 +1,7 @@
 const FooterPanel = ()=> {
     return(
         <footer>
-        footer
+            main footer
         </footer>
     )
 }

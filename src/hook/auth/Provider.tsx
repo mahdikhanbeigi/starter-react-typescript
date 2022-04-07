@@ -3,6 +3,8 @@ import { Context } from "./index";
 import { IAuthUser,IContext } from "./types";
 import { useState } from "react";
 
+
+
 const INIT_USER = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')||"") as IAuthUser : undefined;
 
 const AuthProvider : React.FC = ({ children }) => {

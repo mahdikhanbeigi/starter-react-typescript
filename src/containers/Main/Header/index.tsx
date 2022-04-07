@@ -1,7 +1,7 @@
 const HeaderPanel = () => {
     return (
         <header>
-            header
+            main header
         </header>
     )
 }

@@ -46,7 +46,7 @@ const getDictionary = (code: string): IDictionary => {
     return data;
 }
 const localDictionary = localStorage.getItem('lang');
-let defaultDictionary = getDictionary(String(localDictionary));
+let defaultDictionary = getDictionary(localDictionary||"fa-IR");
 
 const useLang = (): IUseLang => {
     const [dictionary, setDictionary] = useState<IDictionary>(defaultDictionary);

@@ -1,13 +1,13 @@
 import { Fragment } from "react";
-import { Routes, Route, Navigate, useLocation, Link } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, Outlet, Link } from "react-router-dom";
 import MainRoute from "routes/main";
 import PrivateRoute from "routes/private";
 import LoginRoute from "routes/sign/Login";
 import RegisterRoute from "routes/sign/Register";
-import { Button } from "component/HtmlElements";
-import useTheme from "theme/use-theme";
 import Modal from "component/Modal";
 import { useAuth } from "hook/auth";
+import useTheme from "theme/use-theme";
+import { Button } from "component/HtmlElements";
 
 interface IRequireAuth {
   isLogin: boolean;
@@ -17,7 +17,11 @@ const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
   const location = useLocation();
   if (!isLogin) {
     return (
-      <Navigate to={process.env.REACT_APP_BASE_URL + "/login"} state={{ from: location }} replace />
+      <Navigate
+        to={process.env.REACT_APP_BASE_URL + "/login"}
+        state={{ from: location }}
+        replace
+      />
     );
   }
 
@@ -41,17 +45,25 @@ export const App = () => {
   return (
     <Fragment>
       <Routes>
-        <Route path={process.env.REACT_APP_BASE_URL + "/"} element={<MainRoute />} />
         <Route
-          path={process.env.REACT_APP_BASE_URL + "/private"}
-          element={
-            <RequireAuth isLogin={!!user}>
-              <PrivateRoute />
-            </RequireAuth>
-          }
-        />
-        <Route path={process.env.REACT_APP_BASE_URL + "/login"} element={<LoginRoute />} />
-        <Route path={process.env.REACT_APP_BASE_URL + "/register"} element={<RegisterRoute />} />
+          path={process.env.REACT_APP_BASE_URL + "/*"}
+          element={<Outlet />}
+        >
+          <Route
+            path="*"
+            element={<MainRoute/>}
+          />
+          <Route
+            path="private/*"
+            element={
+              <RequireAuth isLogin={!!user}>
+                <PrivateRoute />
+              </RequireAuth>
+            }
+          />
+          <Route path={"login"} element={<LoginRoute />} />
+          <Route path={"register"} element={<RegisterRoute />} />
+        </Route>
       </Routes>
       <div className="container-fluid mt-5">
         <div className="d-flex flex-wrap">
