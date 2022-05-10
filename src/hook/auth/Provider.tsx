@@ -1,13 +1,13 @@
 
 import { Context } from "./index";
 import { IAuthUser,IContext } from "./types";
-import { useState } from "react";
+import React, { useState } from "react";
 
 
 
 const INIT_USER = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')||"") as IAuthUser : undefined;
 
-const AuthProvider : React.FC = ({ children }) => {
+const AuthProvider = ({ children } : React.PropsWithChildren<unknown>) => {
     const [user,setUser] = useState<IAuthUser|undefined>(INIT_USER);
    
     const onLogin : IContext['onLogin'] = (username,passowrd)=>{
