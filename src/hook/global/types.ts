@@ -1,4 +1,5 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
+import { AxiosRequestConfig, Canceler } from "axios";
 
 export interface IUseModalState {
   title?: React.ReactNode;

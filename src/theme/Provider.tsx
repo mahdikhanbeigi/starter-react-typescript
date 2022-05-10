@@ -1,22 +1,6 @@
 import React from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import useStyle from "./use-style";
-import useLang from "./use-lang";
-import { IUseLang, IUseStyle } from "typings/theme";
-
-
-declare module "styled-components" {
-  interface DefaultTheme extends ThemeInterface { }
-}
-
-type IProviderProps = {
-    children: React.ReactNode;
-}
-export interface ThemeInterface {
-    style: IUseStyle,
-    lang: IUseLang;
-}
-
+import { ThemeProvider as ThemeProviderStyledComponent, createGlobalStyle } from "styled-components";
+import { useStyle,useLang } from "theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -88,17 +72,16 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `
-const CustomThemeProvider = ({ children }: IProviderProps) => {
+export const ThemeProvider = ({ children }: React.PropsWithChildren<unknown>) => {
     const style = useStyle();
     const lang = useLang();
     return (
-        <ThemeProvider theme={{
+        <ThemeProviderStyledComponent theme={{
             style,
             lang
         }}>
             <GlobalStyle />
             {children}
-        </ThemeProvider>
+        </ThemeProviderStyledComponent>
     )
 }
-export default CustomThemeProvider;

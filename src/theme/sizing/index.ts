@@ -1,6 +1,6 @@
-import { ISizing } from "typings/theme";
+import { ISizing } from "theme";
 
-const sizing : ISizing = {
+export const sizing : ISizing = {
     radiusBig : 2,
     padding : 1.25,
     radius : 0.25,
@@ -21,4 +21,3 @@ const sizing : ISizing = {
         paddingSm : "0.25rem 0.5rem",
     }
 }
-export default sizing;

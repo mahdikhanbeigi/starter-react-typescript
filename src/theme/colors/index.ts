@@ -1,4 +1,2 @@
-import lightStyle from './light';
-import darkStyle from './dark';
-
-export {lightStyle,darkStyle}
+export * from "./dark";
+export * from "./light";

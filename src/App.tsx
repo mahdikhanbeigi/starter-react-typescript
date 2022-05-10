@@ -1,8 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import App from "containers/App";
-import ThemeProvider from "theme/Provider";
-import GlobalProvider from "hook/global/Provider";
-import AuthProvider from "hook/auth/Provider";
+import {ThemeProvider} from "theme/Provider";
+import {GlobalProvider} from "hook/global";
+import {AuthProvider} from "hook/auth";
 import { ThemeConsumer } from "styled-components";
 
 function MainApp() {

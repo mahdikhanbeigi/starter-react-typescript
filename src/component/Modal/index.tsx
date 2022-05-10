@@ -1,7 +1,7 @@
 import { useGlobal } from "hook/global";
 import { Dialog, Overlay, Content } from "./style";
 
-const Modal = () => {
+export const Modal = () => {
     const { modal } = useGlobal();
     const { data, isStaticBackdrop } = modal;
     if (!data) return null;
@@ -23,5 +23,3 @@ const Modal = () => {
         </Dialog>
     )
 }
-
-export default Modal;

@@ -1,12 +1,13 @@
 import axios from "axios";
-import { IDictionary, IOutputController, IUseController } from "typings/types";
+import { IDictionary } from "theme";
+import { IOutputController, IUseController } from "hook/global";
 
 const STORAGE_LANG = localStorage.getItem("lang") || "en-US";
 export const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL + "/" + STORAGE_LANG,
 });
 
-const useController = (dictionary: IDictionary) => {
+export const useController = (dictionary: IDictionary) => {
   const onRequest: IUseController["onRequest"] = (data) => {
     const REPEAT_INTERVAL_SECOND = 10;
     const CancelToken = axios.CancelToken;
@@ -75,5 +76,3 @@ const useController = (dictionary: IDictionary) => {
     onRequest,
   };
 };
-
-export default useController;

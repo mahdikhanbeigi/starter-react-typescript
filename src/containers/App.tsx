@@ -1,13 +1,19 @@
 import { Fragment } from "react";
-import { Routes, Route, Navigate, useLocation, Outlet, Link } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  Outlet,
+  Link,
+} from "react-router-dom";
 import MainRoute from "routes/main";
 import PrivateRoute from "routes/private";
 import LoginRoute from "routes/sign/Login";
 import RegisterRoute from "routes/sign/Register";
-import Modal from "component/Modal";
-import { useAuth } from "hook/auth";
-import useTheme from "theme/use-theme";
-import { Button } from "component/HtmlElements";
+import { Button , Modal } from "component";
+import { useGlobalAuth } from "hook/auth";
+import {INameStyle, useTheme} from "theme";
 
 interface IRequireAuth {
   isLogin: boolean;
@@ -28,13 +34,11 @@ const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
   return children;
 };
 export const App = () => {
-  const { user,onLogin,onLogout } = useAuth();
+  const { user, onLogin, onLogout } = useGlobalAuth();
   const { lang, style } = useTheme();
- 
-    
 
   const _onToggleColor = () => {
-    style.onChange(style.name === "light" ? "dark" : "light");
+    style.onChange(style.name === 0 ? 1 : 0);
   };
 
   const _onToggleLang = () => {
@@ -49,10 +53,7 @@ export const App = () => {
           path={process.env.REACT_APP_BASE_URL + "/*"}
           element={<Outlet />}
         >
-          <Route
-            path="*"
-            element={<MainRoute/>}
-          />
+          <Route path="*" element={<MainRoute />} />
           <Route
             path="private/*"
             element={
@@ -113,20 +114,21 @@ export const App = () => {
               name: "white",
             }}
             className="me-1"
-            onClick={!user ? ()=> onLogin("test","test") : onLogout}
+            onClick={!user ? () => onLogin("test", "test") : onLogout}
           >
             {!user ? lang.dictionary["login"] : lang.dictionary["logout"]}
           </Button>
           <Button
             $bgColor={{
-              name: style.name === "dark" ? "light" : "dark",
+              name: style.name === 0 ? "light" : "dark",
             }}
             $textColor={{
-              name: style.name !== "dark" ? "light" : "dark",
+              name: style.name !== 0 ? "light" : "dark",
             }}
             onClick={_onToggleColor}
           >
-            {style.name}
+            
+            {INameStyle[style.name]}
           </Button>
         </div>
       </div>

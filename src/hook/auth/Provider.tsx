@@ -1,13 +1,11 @@
-
-import { Context } from "./index";
-import { IAuthUser,IContext } from "./types";
+import { IAuthUser,IContext,ContextAuth } from "hook/auth";
 import React, { useState } from "react";
 
 
 
 const INIT_USER = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')||"") as IAuthUser : undefined;
 
-const AuthProvider = ({ children } : React.PropsWithChildren<unknown>) => {
+export const AuthProvider = ({ children }: React.PropsWithChildren<{}>)=>{
     const [user,setUser] = useState<IAuthUser|undefined>(INIT_USER);
    
     const onLogin : IContext['onLogin'] = (username,passowrd)=>{
@@ -32,15 +30,13 @@ const AuthProvider = ({ children } : React.PropsWithChildren<unknown>) => {
             })
         })
     }
-
     return (
-        <Context.Provider value={{
+        <ContextAuth.Provider value={{
             user,
             onLogin,
             onLogout
         }}>
             {children}
-        </Context.Provider>
+        </ContextAuth.Provider>
     )
 }
-export default AuthProvider;

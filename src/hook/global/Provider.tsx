@@ -1,10 +1,8 @@
-import { Context } from "./index";
-import useModal from "./use-modal";
-import useController from "./use-controller";
-import { IDictionary } from "typings/theme";
 import React from "react";
+import {ContextGlobal,useModal,useController} from "hook/global";
+import { IDictionary } from "theme";
 
-const CustomThemeProvider = ({
+export const GlobalProvider = ({
   children,
   dictionary,
 }: React.PropsWithChildren<{ dictionary: IDictionary }>) => {
@@ -12,14 +10,13 @@ const CustomThemeProvider = ({
   const controller = useController(dictionary);
 
   return (
-    <Context.Provider
+    <ContextGlobal.Provider
       value={{
         modal,
         controller,
       }}
     >
       {children}
-    </Context.Provider>
+    </ContextGlobal.Provider>
   );
 };
-export default CustomThemeProvider;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IThemeColor } from "typings/theme";
+import { IThemeColor } from "theme";
 
 type IProps = {
   $textColor?: Partial<IThemeColor>;
@@ -13,7 +13,7 @@ type IProps = {
   $isDisabled?: boolean;
   $sizing?: "sm" | "lg";
 };
-const Button = styled.button.attrs((props) => {
+export const Button = styled.button.attrs((props) => {
   if (!("as" in props)) {
     return {
       type: props.type ? props.type : "button",
@@ -97,15 +97,15 @@ const Button = styled.button.attrs((props) => {
         ${
           props.$isDisabled
             ? `
-        color : ${props.theme.style.getColor("txt", "lighter")};
+        color : ${props.theme.style.getColor("txt", -1)};
         background-color : ${props.theme.style.getColor("grey")};
-        border-color : ${props.theme.style.getColor("grey", "darker")};
+        border-color : ${props.theme.style.getColor("grey", 1)};
         `
             : `
         &:disabled{
-            color : ${props.theme.style.getColor("txt", "lighter")};
+            color : ${props.theme.style.getColor("txt", -1)};
             background-color : ${props.theme.style.getColor("grey")};
-            border-color : ${props.theme.style.getColor("grey", "darker")};
+            border-color : ${props.theme.style.getColor("grey", 1)};
         }
         &:not(:disabled){
             color : ${
@@ -130,7 +130,7 @@ const Button = styled.button.attrs((props) => {
               border
                 ? props.theme.style.getColor(
                     border.name,
-                    border.mood || "darker",
+                    border.mood || 1,
                     border.opacity
                   )
                 : "transparent"
@@ -141,7 +141,7 @@ const Button = styled.button.attrs((props) => {
               hoverText
                 ? `color : ${props.theme.style.getColor(
                     hoverText,
-                    "darker",
+                    1,
                     props.$textColor?.opacity
                   )};`
                 : ""
@@ -150,7 +150,7 @@ const Button = styled.button.attrs((props) => {
               hoverBg
                 ? `background-color : ${props.theme.style.getColor(
                     hoverBg,
-                    "darker",
+                    1,
                     1
                   )};`
                 : ""
@@ -159,7 +159,7 @@ const Button = styled.button.attrs((props) => {
               hoverBorder
                 ? `border-color : ${props.theme.style.getColor(
                     hoverBorder,
-                    "darker",
+                    1,
                     border?.opacity
                   )};`
                 : ""
@@ -173,7 +173,7 @@ const Button = styled.button.attrs((props) => {
             ? `
         color : ${props.theme.style.getColor(
           activeText,
-          "darkest",
+          2,
           props.$textColor?.opacity
         )};
     `
@@ -182,7 +182,7 @@ const Button = styled.button.attrs((props) => {
     ${
       activeBg
         ? `
-    background-color : ${props.theme.style.getColor(activeBg, "darkest", 1)};
+    background-color : ${props.theme.style.getColor(activeBg, 2, 1)};
     `
         : ""
     }
@@ -191,7 +191,7 @@ const Button = styled.button.attrs((props) => {
         ? `
     border-color : ${props.theme.style.getColor(
       activeBorder,
-      "darkest",
+      2,
       border?.opacity
     )};
 `
@@ -205,7 +205,7 @@ const Button = styled.button.attrs((props) => {
             ? `
             color : ${props.theme.style.getColor(
               activeText,
-              "darkest",
+              2,
               props.$textColor?.opacity
             )};
         `
@@ -216,7 +216,7 @@ const Button = styled.button.attrs((props) => {
             ? `
         background-color : ${props.theme.style.getColor(
           activeBg,
-          "darkest",
+          2,
           1
         )};
         `
@@ -227,7 +227,7 @@ const Button = styled.button.attrs((props) => {
             ? `
         border-color : ${props.theme.style.getColor(
           activeBorder,
-          "darkest",
+          2,
           border?.opacity
         )};
     `
@@ -239,5 +239,3 @@ const Button = styled.button.attrs((props) => {
         `;
   }}
 `;
-
-export default Button;
