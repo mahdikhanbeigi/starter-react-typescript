@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IThemeColor } from "theme";
+import { IThemeColor } from "@starter-frontend/theme";
 
 type IProps = {
   $textColor?: Partial<IThemeColor>;
@@ -22,7 +22,7 @@ export const Button = styled.button.attrs((props) => {
 })<IProps>`
   padding: ${(props) =>
     !props.$isLink && !props.$isIcon
-      ? props.theme.style.sizing.btn.padding + ";"
+      ? props.theme.style.sizing?.btn.padding + ";"
       : "0;"};
   ${(props) => {
     let style = "";
@@ -40,30 +40,30 @@ export const Button = styled.button.attrs((props) => {
             `;
       if (props.$sizing === "lg")
         style += `
-            width:${props.theme.style.sizing.btn.squareLg};
-            height:${props.theme.style.sizing.btn.squareLg};
+            width:${props.theme.style.sizing?.btn.squareLg};
+            height:${props.theme.style.sizing?.btn.squareLg};
             `;
       else if (props.$sizing === "sm")
         style += `
-                width:${props.theme.style.sizing.btn.squareSm};
-                height:${props.theme.style.sizing.btn.squareSm};
+                width:${props.theme.style.sizing?.btn.squareSm};
+                height:${props.theme.style.sizing?.btn.squareSm};
             `;
       else
         style += `
-                width:${props.theme.style.sizing.btn.square};
-                height:${props.theme.style.sizing.btn.square};
+                width:${props.theme.style.sizing?.btn.square};
+                height:${props.theme.style.sizing?.btn.square};
             `;
       if (props.$sizing === "lg")
         style += `
-                font-size: ${props.theme.style.sizing.fontSizeLg};
+                font-size: ${props.theme.style.sizing?.fontSizeLg};
             `;
       else if (props.$sizing === "sm")
         style += `
-                font-size: ${props.theme.style.sizing.fontSizeSm};
+                font-size: ${props.theme.style.sizing?.fontSizeSm};
             `;
       else
         style += `
-                font-size: ${props.theme.style.sizing.fontSize};
+                font-size: ${props.theme.style.sizing?.fontSize};
             `;
     }
     return style;
@@ -72,10 +72,10 @@ export const Button = styled.button.attrs((props) => {
   border-style: solid;
   user-select: none;
   border-radius: ${(props) =>
-    props.$isCircle ? "50%" : props.theme.style.sizing.radius + "rem"};
+    props.$isCircle ? "50%" : props.theme.style.sizing?.radius + "rem"};
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  min-height: ${(props) => props.theme.style.sizing.btn.square};
+  min-height: ${(props) => props.theme.style.sizing?.btn.square};
   ${(props) =>
     props.$isLink
       ? `

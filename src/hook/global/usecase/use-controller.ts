@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IDictionary } from "theme";
+import { IDictionary } from "@starter-frontend/theme";
 import { IOutputController, IUseController } from "hook/global";
 
 const STORAGE_LANG = localStorage.getItem("lang") || "en-US";

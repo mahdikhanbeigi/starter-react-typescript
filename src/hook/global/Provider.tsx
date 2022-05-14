@@ -1,6 +1,6 @@
 import React from "react";
 import {ContextGlobal,useModal,useController} from "hook/global";
-import { IDictionary } from "theme";
+import { IDictionary } from "@starter-frontend/theme";
 
 export const GlobalProvider = ({
   children,

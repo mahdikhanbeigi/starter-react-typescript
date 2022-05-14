@@ -13,7 +13,7 @@ import LoginRoute from "routes/sign/Login";
 import RegisterRoute from "routes/sign/Register";
 import { Button , Modal } from "component";
 import { useGlobalAuth } from "hook/auth";
-import {INameStyle, useTheme} from "theme";
+import {useTheme} from "@starter-frontend/theme";
 
 interface IRequireAuth {
   isLogin: boolean;
@@ -38,7 +38,7 @@ export const App = () => {
   const { lang, style } = useTheme();
 
   const _onToggleColor = () => {
-    style.onChange(style.name === 0 ? 1 : 0);
+    style.onChange(style.name === "dark" ? "light" : "dark");
   };
 
   const _onToggleLang = () => {
@@ -120,15 +120,15 @@ export const App = () => {
           </Button>
           <Button
             $bgColor={{
-              name: style.name === 0 ? "light" : "dark",
+              name: style.name === "dark" ? "light" : "dark",
             }}
             $textColor={{
-              name: style.name !== 0 ? "light" : "dark",
+              name: style.name,
             }}
             onClick={_onToggleColor}
           >
             
-            {INameStyle[style.name]}
+            {style.name}
           </Button>
         </div>
       </div>

@@ -23,7 +23,7 @@ z-index: -1;
 `
 
 export const Content = styled.div`
-border-radius: ${props=> props.theme.style.sizing.radius}rem;
+border-radius: ${props=> props.theme.style.sizing?.radius}rem;
 background-color: ${props => props.theme.style.getColor('grey')};
 border: 1px solid ${props => props.theme.style.getColor('grey',2)};
 max-width: 500px !important;
