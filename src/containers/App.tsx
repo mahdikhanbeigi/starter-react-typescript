@@ -11,9 +11,10 @@ import MainRoute from "routes/main";
 import PrivateRoute from "routes/private";
 import LoginRoute from "routes/sign/Login";
 import RegisterRoute from "routes/sign/Register";
-import { Button , Modal } from "component";
+import { Modal } from "component";
 import { useGlobalAuth } from "hook/auth";
-import {useTheme} from "@starter-frontend/theme";
+import { useTheme } from "@starter-frontend/theme";
+import { Button } from "@starter-frontend/html-elements";
 
 interface IRequireAuth {
   isLogin: boolean;
@@ -38,9 +39,8 @@ export const App = () => {
   const { lang, style } = useTheme();
 
   const _onToggleColor = () => {
-    style.onChange(style.name === "dark" ? "light" : "dark");
+    style.onChange(style.name === "light" ? "dark" : "light");
   };
-
   const _onToggleLang = () => {
     lang.onChange(
       lang.dictionary["theme.locale"] === "en-US" ? "fa-IR" : "en-US"
@@ -71,10 +71,14 @@ export const App = () => {
           <Button
             as={Link}
             $bgColor={{
-              name: "green",
+              variant: {
+                name: "green",
+              },
             }}
             $textColor={{
-              name: "white",
+              variant: {
+                name: "white",
+              },
             }}
             className="me-1"
             to={process.env.REACT_APP_BASE_URL + "/"}
@@ -84,10 +88,14 @@ export const App = () => {
           <Button
             as={Link}
             $bgColor={{
-              name: "green",
+              variant: {
+                name: "green",
+              },
             }}
             $textColor={{
-              name: "white",
+              variant: {
+                name: "white",
+              },
             }}
             className="me-3"
             to={process.env.REACT_APP_BASE_URL + "/private"}
@@ -96,10 +104,14 @@ export const App = () => {
           </Button>
           <Button
             $bgColor={{
-              name: "green",
+              variant: {
+                name: "green",
+              },
             }}
             $textColor={{
-              name: "white",
+              variant: {
+                name: "white",
+              },
             }}
             className="me-1"
             onClick={_onToggleLang}
@@ -108,10 +120,14 @@ export const App = () => {
           </Button>
           <Button
             $bgColor={{
-              name: !user ? "green" : "red",
+              variant: {
+                name: !user ? "green" : "red",
+              },
             }}
             $textColor={{
-              name: "white",
+              variant: {
+                name: "white",
+              },
             }}
             className="me-1"
             onClick={!user ? () => onLogin("test", "test") : onLogout}
@@ -120,14 +136,17 @@ export const App = () => {
           </Button>
           <Button
             $bgColor={{
-              name: style.name === "dark" ? "light" : "dark",
+              variant: {
+                name: "dark",
+              },
             }}
             $textColor={{
-              name: style.name,
+              variant: {
+                name: "light",
+              },
             }}
             onClick={_onToggleColor}
           >
-            
             {style.name}
           </Button>
         </div>
