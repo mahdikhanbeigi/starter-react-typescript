@@ -1,9 +1,5 @@
 const HeaderPanel = () => {
-    return (
-        <header>
-            private header
-        </header>
-    )
-}
+  return <header>private header</header>;
+};
 
 export default HeaderPanel;

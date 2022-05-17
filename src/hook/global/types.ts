@@ -13,8 +13,6 @@ export interface IUseModal {
   onClose: () => void;
 }
 
-
-
 type IDataController = {
   [index: string]: {
     baseURL?: string;

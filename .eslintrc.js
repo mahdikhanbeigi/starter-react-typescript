@@ -3,7 +3,7 @@ module.exports = {
     env: {
         node: true,
     },
-    extends: ["react-app", "plugin:react/recommended"],
+    extends: ["react-app", "plugin:react/recommended", "plugin:prettier/recommended"],
     parserOptions: {
         ecmaVersion: 2018,
         sourceType: "module",

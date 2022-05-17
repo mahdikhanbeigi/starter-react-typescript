@@ -1,8 +1,4 @@
-const FooterPanel = ()=> {
-    return(
-        <footer>
-            main footer
-        </footer>
-    )
-}
+const FooterPanel = () => {
+  return <footer>main footer</footer>;
+};
 export default FooterPanel;

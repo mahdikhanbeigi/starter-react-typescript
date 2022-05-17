@@ -1,11 +1,7 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 
 const ErrorRoute = () => {
-    return (
-        <Fragment>
-            Error
-        </Fragment>
-    )
-}
+  return <Fragment>Error</Fragment>;
+};
 
-export default ErrorRoute
+export default ErrorRoute;

@@ -1,17 +1,18 @@
 import { BrowserRouter } from "react-router-dom";
-import App from "containers/App";
+import App from "@app/containers/App";
 import { ThemeProvider } from "@starter-frontend/theme";
-import { GlobalProvider } from "hook/global";
-import { AuthProvider } from "hook/auth";
+import { GlobalProvider } from "@app/hook/global";
+import { AuthProvider } from "@app/hook/auth";
 import { ThemeConsumer } from "styled-components";
-import { ThemeStyle } from "containers/ThemeStyle";
+import { ThemeStyle } from "@app/containers/ThemeStyle";
 
 function MainApp() {
   return (
     <ThemeProvider
-    defaultStyle={{
-      name: "light",
-    }}
+      prefix="app"
+      defaultStyle={{
+        name: "light",
+      }}
     >
       <ThemeStyle />
       <AuthProvider>
@@ -29,4 +30,3 @@ function MainApp() {
   );
 }
 export default MainApp;
-

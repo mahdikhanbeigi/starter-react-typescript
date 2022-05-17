@@ -7,12 +7,12 @@ import {
   Outlet,
   Link,
 } from "react-router-dom";
-import MainRoute from "routes/main";
-import PrivateRoute from "routes/private";
-import LoginRoute from "routes/sign/Login";
-import RegisterRoute from "routes/sign/Register";
-import { Modal } from "component";
-import { useGlobalAuth } from "hook/auth";
+import MainRoute from "@app/routes/main";
+import PrivateRoute from "@app/routes/private";
+import LoginRoute from "@app/routes/sign/Login";
+import RegisterRoute from "@app/routes/sign/Register";
+import { Modal } from "@app/component";
+import { useGlobalAuth } from "@app/hook/auth";
 import { useTheme } from "@starter-frontend/theme";
 import { Button } from "@starter-frontend/html-elements";
 
@@ -43,7 +43,7 @@ export const App = () => {
   };
   const _onToggleLang = () => {
     lang.onChange(
-      lang.dictionary["theme.locale"] === "en-US" ? "fa-IR" : "en-US"
+      lang.dictionary["theme.locale"] === "en-US" ? "fa-IR" : "en-US",
     );
   };
   return (

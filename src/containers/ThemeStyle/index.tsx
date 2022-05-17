@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { IDictionary, useTheme } from "@starter-frontend/theme";
 import { createGlobalStyle } from "styled-components";
 
@@ -104,11 +104,9 @@ const GlobalStyle = createGlobalStyle`
 export const ThemeStyle = () => {
   const { lang } = useTheme();
   const { dictionary } = lang;
-  const [loading,setLoading] = useState(true);
   useEffect(() => {
     dictionaryChange(dictionary);
-    setLoading(false)
   }, [dictionary]);
 
-  return loading ? <Fragment /> : <GlobalStyle />;
+  return <GlobalStyle />;
 };

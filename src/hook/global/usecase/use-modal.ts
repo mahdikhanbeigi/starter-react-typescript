@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IUseModal, IUseModalState } from "hook/global";
+import { IUseModal, IUseModalState } from "@app/hook/global";
 
 export const useModal = (): IUseModal => {
   const [data, setData] = useState<IUseModalState | undefined>();

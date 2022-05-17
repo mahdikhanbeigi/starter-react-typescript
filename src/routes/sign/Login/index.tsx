@@ -1,9 +1,5 @@
-
-const Login = ()=>{
-    return(
-        <p>Login</p>
-    )
-}
-
+const Login = () => {
+  return <p>Login</p>;
+};
 
 export default Login;

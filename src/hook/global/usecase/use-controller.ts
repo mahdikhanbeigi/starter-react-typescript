@@ -1,6 +1,6 @@
 import axios from "axios";
 import { IDictionary } from "@starter-frontend/theme";
-import { IOutputController, IUseController } from "hook/global";
+import { IOutputController, IUseController } from "@app/hook/global";
 
 const STORAGE_LANG = localStorage.getItem("lang") || "en-US";
 export const instance = axios.create({
