@@ -10,9 +10,9 @@
     "styled-components": "^5.3.5",
     "@types/react-router-dom": "^5.3.3",
     "react-router-dom": "^6.3.0",
-    "@starter-frontend/theme": "^1.0.16",
-    "@starter-frontend/constants": "^1.0.0",
-    "@starter-frontend/html-elements": "^1.0.1"
+    "@starter-frontend/theme": "^1.0.17",
+    "@starter-frontend/constants": "^1.0.2",
+    "@starter-frontend/html-elements": "^1.0.15"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
