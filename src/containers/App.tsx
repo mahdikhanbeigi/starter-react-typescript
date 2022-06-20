@@ -11,7 +11,6 @@ import MainRoute from "@app/routes/main";
 import PrivateRoute from "@app/routes/private";
 import LoginRoute from "@app/routes/sign/Login";
 import RegisterRoute from "@app/routes/sign/Register";
-import { Modal } from "@app/component";
 import { useGlobalAuth } from "@app/hook/auth";
 import { useTheme } from "@starter-frontend/theme";
 import { Button } from "@starter-frontend/html-elements";
@@ -151,7 +150,6 @@ export const App = () => {
           </Button>
         </div>
       </div>
-      <Modal />
     </Fragment>
   );
 };
