@@ -20,7 +20,14 @@ function MainApp() {
           <BrowserRouter>
             <App />
           </BrowserRouter>
-          <Modal />
+          <Modal
+            style={{
+              content: {
+                background: "red",
+                maxWidth: "500px",
+              },
+            }}
+          />
           <Overlay />
         </HtmlProvider>
       </AuthProvider>

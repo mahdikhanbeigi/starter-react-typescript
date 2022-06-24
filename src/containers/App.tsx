@@ -69,16 +69,16 @@ export const App = () => {
         <div className="d-flex flex-wrap">
           <Button
             as={Link}
-            $bgColor={{
-              variant: {
-                name: "green",
-              },
-            }}
-            $textColor={{
-              variant: {
-                name: "white",
-              },
-            }}
+            // $bgColor={{
+            //   variant: {
+            //     name: "green",
+            //   },
+            // }}
+            // $textColor={{
+            //   variant: {
+            //     name: "white",
+            //   },
+            // }}
             className="me-1"
             to={process.env.REACT_APP_BASE_URL + "/"}
           >
