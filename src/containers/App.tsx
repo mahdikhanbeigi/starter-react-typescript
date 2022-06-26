@@ -70,6 +70,7 @@ export const App = () => {
         <div className="d-flex flex-wrap">
           <Button
             as={Link}
+            to={process.env.REACT_APP_BASE_URL + "/"}
             // $bgColor={{
             //   variant: {
             //     name: "green",
@@ -81,7 +82,6 @@ export const App = () => {
             //   },
             // }}
             className="me-1"
-            to={process.env.REACT_APP_BASE_URL + "/"}
           >
             {lang.dictionary["nav.title.home"]}
           </Button>

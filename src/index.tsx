@@ -9,16 +9,6 @@ initialProps.style = {
     mood: 1,
     opacity: 0.5,
   },
-  // btn: {
-  //   $bgColor: {
-  //     variant: {
-  //       name: "transparent",
-  //     },
-  //     hover: {
-  //       opacity: 1,
-  //     },
-  //   },
-  // },
   dropdownMenu: {
     $style: {
       $bgColor: {
