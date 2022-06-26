@@ -10,9 +10,9 @@
     "styled-components": "^5.3.5",
     "@types/react-router-dom": "^5.3.3",
     "react-router-dom": "^6.3.0",
-    "@starter-frontend/theme": "^1.0.18",
-    "@starter-frontend/constants": "^1.0.6",
-    "@starter-frontend/html-elements": "^1.0.33"
+    "@starter-frontend/theme": "^1.0.19",
+    "@starter-frontend/constants": "^1.0.10",
+    "@starter-frontend/html-elements": "^1.0.39"
   },
   "devDependencies": {
     "@craco/craco": "^6.4.3",

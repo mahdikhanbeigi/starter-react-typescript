@@ -13,7 +13,7 @@ import LoginRoute from "@app/routes/sign/Login";
 import RegisterRoute from "@app/routes/sign/Register";
 import { useGlobalAuth } from "@app/hook/auth";
 import { useTheme } from "@starter-frontend/theme";
-import { Button } from "@starter-frontend/html-elements";
+import { Button, Card, Typography } from "@starter-frontend/html-elements";
 
 interface IRequireAuth {
   isLogin: boolean;
@@ -65,6 +65,7 @@ export const App = () => {
           <Route path={"register"} element={<RegisterRoute />} />
         </Route>
       </Routes>
+
       <div className="container-fluid mt-5">
         <div className="d-flex flex-wrap">
           <Button

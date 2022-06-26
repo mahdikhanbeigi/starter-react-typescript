@@ -4,14 +4,33 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 initialProps.style = {
-  btn: {
+  overlayBg: {
+    name: "dark",
+    mood: 1,
+    opacity: 0.5,
+  },
+  // btn: {
+  //   $bgColor: {
+  //     variant: {
+  //       name: "transparent",
+  //     },
+  //     hover: {
+  //       opacity: 1,
+  //     },
+  //   },
+  // },
+  dropdownMenu: {
+    $style: {
+      $bgColor: {
+        variant: {
+          name: "light",
+        },
+      },
+    },
+  },
+  card: {
     $bgColor: {
-      variant: {
-        name: "transparent",
-      },
-      hover: {
-        opacity: 1,
-      },
+      name: "blue",
     },
   },
 };

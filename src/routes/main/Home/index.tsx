@@ -1,4 +1,5 @@
 import {
+  Card,
   Dropdown,
   DropdownToggle,
   useHtml,
@@ -9,20 +10,35 @@ const Home = () => {
   const { modal } = useHtml();
 
   useEffect(() => {
-    modal.onOpen({
-      children: (
-        <Fragment>
-          {[...Array(30)].map((_, index) => (
-            <p key={index}>asdasds</p>
-          ))}
-        </Fragment>
-      ),
-    });
+    // modal.onOpen({
+    //   children: (
+    //     <Fragment>
+    //       {[...Array(30)].map((_, index) => (
+    //         <p key={index}>asdasds</p>
+    //       ))}
+    //     </Fragment>
+    //   ),
+    // });
   }, []);
   return (
-    <p>
-      <Dropdown btn={<DropdownToggle>asdasd</DropdownToggle>}>asdasd</Dropdown>
-    </p>
+    <Fragment>
+      <Card
+        className="p-5"
+        $bgColor={{
+          name: "red",
+        }}
+        $border={{
+          color: {
+            variant: {
+              name: "yellow",
+            },
+          },
+        }}
+      >
+        asdasd
+      </Card>
+      <Dropdown btn={<DropdownToggle>asdasd</DropdownToggle>}>menu</Dropdown>
+    </Fragment>
   );
 };
 
