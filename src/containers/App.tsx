@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import {
   Routes,
   Route,
@@ -13,7 +13,12 @@ import LoginRoute from "@app/routes/sign/Login";
 import RegisterRoute from "@app/routes/sign/Register";
 import { useGlobalAuth } from "@app/hook/auth";
 import { useTheme } from "@starter-frontend/theme";
-import { Button, Card, Typography } from "@starter-frontend/html-elements";
+import {
+  Button,
+  Card,
+  Typography,
+  useHtml,
+} from "@starter-frontend/html-elements";
 
 interface IRequireAuth {
   isLogin: boolean;
@@ -36,7 +41,13 @@ const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
 export const App = () => {
   const { user, onLogin, onLogout } = useGlobalAuth();
   const { lang, style } = useTheme();
+  const { modal } = useHtml();
 
+  useEffect(() => {
+    modal.onOpen({
+      children: [...Array(500)].map((item, index) => <p key={index}>adasd</p>),
+    });
+  }, []);
   const _onToggleColor = () => {
     style.onChange(style.name === "light" ? "dark" : "light");
   };
@@ -68,23 +79,36 @@ export const App = () => {
 
       <div className="container-fluid mt-5">
         <div className="d-flex flex-wrap">
-          <Button
-            as={Link}
-            to={process.env.REACT_APP_BASE_URL + "/"}
-            // $bgColor={{
-            //   variant: {
-            //     name: "green",
-            //   },
-            // }}
-            // $textColor={{
-            //   variant: {
-            //     name: "white",
-            //   },
-            // }}
-            className="me-1"
-          >
-            {lang.dictionary["nav.title.home"]}
-          </Button>
+          {[...Array(1)].map((item, index) => (
+            <Button
+              key={index}
+              as={Link}
+              to={process.env.REACT_APP_BASE_URL + "/"}
+              // $bgColor={{
+              //   variant: {
+              //     name: "green",
+              //   },
+              //   hover: {
+              //     name: "blue",
+              //   },
+              // }}
+              // $textColor={{
+              //   variant: {
+              //     name: "white",
+              //   },
+              //   hover: {
+              //     name: "yellow",
+              //   },
+              //   active: {
+              //     name: "blue",
+              //   },
+              // }}
+              // $isActive
+              className="me-1"
+            >
+              {lang.dictionary["nav.title.home"]}
+            </Button>
+          ))}
           <Button
             as={Link}
             $bgColor={{

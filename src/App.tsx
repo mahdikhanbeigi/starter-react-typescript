@@ -34,7 +34,6 @@ function MainApp() {
               />
             )}
           </ThemeConsumer>
-
           <Overlay />
         </HtmlProvider>
       </AuthProvider>

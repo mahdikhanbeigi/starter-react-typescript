@@ -24,13 +24,10 @@ const Home = () => {
     <Fragment>
       <Card
         className="p-5"
-        $bgColor={{
-          name: "red",
-        }}
         $border={{
           color: {
             variant: {
-              name: "yellow",
+              name: "red",
             },
           },
         }}

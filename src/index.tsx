@@ -4,6 +4,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 initialProps.style = {
+  btn: {
+    $bgColor: {
+      active: {
+        name: "red",
+      },
+    },
+  },
   overlayBg: {
     name: "dark",
     mood: 1,
@@ -20,7 +27,7 @@ initialProps.style = {
   },
   card: {
     $bgColor: {
-      name: "blue",
+      name: "yellow",
     },
   },
 };
