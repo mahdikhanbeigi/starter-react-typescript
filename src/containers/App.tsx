@@ -41,13 +41,6 @@ const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
 export const App = () => {
   const { user, onLogin, onLogout } = useGlobalAuth();
   const { lang, style } = useTheme();
-  const { modal } = useHtml();
-
-  useEffect(() => {
-    modal.onOpen({
-      children: [...Array(500)].map((item, index) => <p key={index}>adasd</p>),
-    });
-  }, []);
   const _onToggleColor = () => {
     style.onChange(style.name === "light" ? "dark" : "light");
   };

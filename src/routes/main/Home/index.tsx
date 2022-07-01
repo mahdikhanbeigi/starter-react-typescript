@@ -1,6 +1,7 @@
 import {
+  AlignDropdown,
+  Button,
   Card,
-  Dropdown,
   DropdownToggle,
   useHtml,
 } from "@starter-frontend/html-elements";
@@ -9,17 +10,6 @@ import { Fragment, useEffect } from "react";
 const Home = () => {
   const { modal } = useHtml();
 
-  useEffect(() => {
-    // modal.onOpen({
-    //   children: (
-    //     <Fragment>
-    //       {[...Array(30)].map((_, index) => (
-    //         <p key={index}>asdasds</p>
-    //       ))}
-    //     </Fragment>
-    //   ),
-    // });
-  }, []);
   return (
     <Fragment>
       <Card
@@ -34,7 +24,21 @@ const Home = () => {
       >
         asdasd
       </Card>
-      <Dropdown btn={<DropdownToggle>asdasd</DropdownToggle>}>menu</Dropdown>
+      <Button
+        onClick={() => {
+          modal.onOpen({
+            children: [...Array(500)].map((item, index) => (
+              <p key={index}>adasd</p>
+            )),
+          });
+        }}
+      >
+        modal open
+      </Button>
+      <DropdownToggle align={AlignDropdown.center} content="asdasd">
+        asdasd
+      </DropdownToggle>
+      {/* <Dropdown btn={<DropdownToggle>asdasd</DropdownToggle>}>menu</Dropdown> */}
     </Fragment>
   );
 };

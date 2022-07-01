@@ -20,21 +20,6 @@ function MainApp() {
           <BrowserRouter>
             <App />
           </BrowserRouter>
-          <ThemeConsumer>
-            {({ style }) => (
-              <Modal
-                style={{
-                  content: {
-                    backgroundColor: style.getColor("light"),
-                    border: "1px solid " + style.getColor("light", 2),
-                    maxWidth: "500px",
-                    borderRadius: style.sizing?.["border-radius"] || "4px",
-                  },
-                }}
-              />
-            )}
-          </ThemeConsumer>
-          <Overlay />
         </HtmlProvider>
       </AuthProvider>
     </ThemeProvider>

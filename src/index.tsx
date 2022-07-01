@@ -17,12 +17,30 @@ initialProps.style = {
     opacity: 0.5,
   },
   dropdownMenu: {
-    $style: {
+    style: {
       $bgColor: {
         variant: {
           name: "light",
         },
       },
+    },
+  },
+  modal: {
+    content: {
+      $bgColor: {
+        variant: {
+          name: "light",
+        },
+      },
+      $borderColor: {
+        variant: {
+          name: "light",
+          mood: 2,
+        },
+      },
+
+      maxWidth: "500px",
+      borderRadius: "4px",
     },
   },
   card: {
