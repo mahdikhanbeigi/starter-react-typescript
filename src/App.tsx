@@ -14,25 +14,21 @@ function MainApp() {
         name: "light",
       }}
     >
-      <Context.Consumer>
-        {({ loading }) => {
-          if (loading) {
-            return <Fragment />;
-          }
-          return (
-            <Fragment>
-              <ThemeStyle />
-              <AuthProvider>
-                <BrowserRouter>
-                  <HtmlProvider>
-                    <App />
-                  </HtmlProvider>
-                </BrowserRouter>
-              </AuthProvider>
-            </Fragment>
-          );
-        }}
-      </Context.Consumer>
+      <ThemeStyle />
+      <AuthProvider>
+        <BrowserRouter>
+          <HtmlProvider>
+            <Context.Consumer>
+              {({ loading }) => {
+                if (loading) {
+                  return <Fragment />;
+                }
+                return <App />;
+              }}
+            </Context.Consumer>
+          </HtmlProvider>
+        </BrowserRouter>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

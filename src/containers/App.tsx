@@ -53,7 +53,7 @@ export const App = () => {
 
   useEffect(() => {
     modal.onOpen({
-      children: "",
+      children: <Button onClick={() => modal.onClose()}>adasd</Button>,
     });
   }, []);
   return (
