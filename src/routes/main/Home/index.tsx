@@ -10,6 +10,16 @@ import { Fragment, useEffect } from "react";
 const Home = () => {
   const { modal } = useHtml();
 
+  useEffect(() => {
+    modal.onOpen({
+      children: [...Array(500)].map((item, index) => (
+        <Button key={index} onClick={() => modal.onClose()}>
+          adasd
+        </Button>
+      )),
+    });
+  }, []);
+
   return (
     <Fragment>
       <Card
@@ -25,13 +35,9 @@ const Home = () => {
         asdasd
       </Card>
       <Button
-        onClick={() => {
-          modal.onOpen({
-            children: [...Array(500)].map((item, index) => (
-              <p key={index}>adasd</p>
-            )),
-          });
-        }}
+      // onClick={() => {
+
+      // }}
       >
         modal open
       </Button>

@@ -41,6 +41,7 @@ const RequireAuth = ({ isLogin, children }: IRequireAuth) => {
 export const App = () => {
   const { user, onLogin, onLogout } = useGlobalAuth();
   const { lang, style } = useTheme();
+  const { modal, loading } = useHtml();
   const _onToggleColor = () => {
     style.onChange(style.name === "light" ? "dark" : "light");
   };
@@ -49,6 +50,12 @@ export const App = () => {
       lang.dictionary["theme.locale"] === "en-US" ? "fa-IR" : "en-US",
     );
   };
+
+  useEffect(() => {
+    modal.onOpen({
+      children: "",
+    });
+  }, []);
   return (
     <Fragment>
       <Routes>

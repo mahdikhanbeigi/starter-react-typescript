@@ -2,9 +2,9 @@ import { BrowserRouter } from "react-router-dom";
 import App from "@app/containers/App";
 import { ThemeProvider } from "@starter-frontend/theme";
 import { AuthProvider } from "@app/hook/auth";
-import { ThemeConsumer } from "styled-components";
 import { ThemeStyle } from "@app/containers/ThemeStyle";
-import { HtmlProvider, Modal, Overlay } from "@starter-frontend/html-elements";
+import { HtmlProvider, Context } from "@starter-frontend/html-elements";
+import { Fragment } from "react";
 
 function MainApp() {
   return (
@@ -14,14 +14,25 @@ function MainApp() {
         name: "light",
       }}
     >
-      <ThemeStyle />
-      <AuthProvider>
-        <HtmlProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </HtmlProvider>
-      </AuthProvider>
+      <Context.Consumer>
+        {({ loading }) => {
+          if (loading) {
+            return <Fragment />;
+          }
+          return (
+            <Fragment>
+              <ThemeStyle />
+              <AuthProvider>
+                <BrowserRouter>
+                  <HtmlProvider>
+                    <App />
+                  </HtmlProvider>
+                </BrowserRouter>
+              </AuthProvider>
+            </Fragment>
+          );
+        }}
+      </Context.Consumer>
     </ThemeProvider>
   );
 }
